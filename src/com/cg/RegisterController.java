@@ -43,7 +43,7 @@ public class RegisterController {
     }
     
     @RequestMapping(method = RequestMethod.POST)
-    public String processRegistration(@ModelAttribute("userForm") UserDTO UserDTO,Map<String, Object> model) {
+    public String processRegistration(@ModelAttribute("userForm") UserDTO UserDTO) {
     	System.out.println("inside POST");
         // implement your own registration logic here...
         // for testing purpose:
@@ -68,6 +68,7 @@ public class RegisterController {
     
     @ModelAttribute("userForm")
     UserDTO createUser(){
+    	System.out.println("retrieved from database"+ userDao.get(dtoRef));
     	System.out.println("TRYING TO CREATE AN ENTRY FOR A USER");
     	return dtoRef;
     }
